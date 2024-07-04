@@ -17,11 +17,11 @@ on:
 
 env:
   DOCKER_NAMESPACE: kolla
-  KOLLA_BASE_DISTRO: centos
+  KOLLA_BASE_DISTRO: debian
   INSTALL_TYPE: source
-  OPENSTACK_RELEASE: train
+  OPENSTACK_RELEASE: zed
   ALIYUN_REGISTRY: registry.cn-shenzhen.aliyuncs.com
-  ALIYUN_NAMESPACE: kollaimage
+  ALIYUN_NAMESPACE: kolla-cld
 
 jobs:
   get-kolla-images:
@@ -37,7 +37,7 @@ jobs:
       
     # clone kolla repo
     - name: clone kolla repo
-      run: git clone https://github.com/openstack/kolla.git -b stable/$OPENSTACK_RELEASE
+      run: git clone https://github.com/openstack/kolla.git -b unmaintained/$OPENSTACK_RELEASE
 
     # get images list
     - name: get images list
